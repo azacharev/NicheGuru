@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -5,8 +7,10 @@ var request = require('request');
 
 var util = require('util');
 
-// google trends api here
-const googleTrends = require('google-trends-api');
+var facebookScrape = require('facebook-scrape')
+
+// google trends api here -- !not working
+// const googleTrends = require('google-trends-api');
 
 // create express app object
 var app = express();
@@ -24,13 +28,27 @@ app.use(express.static('public'));
 //    res.send("Hello!");
 // });
 
-googleTrends.interestOverTime({keyword: 'Valentines Day'})
-.then(function(results){
-  console.log(results);
+// doesn't work
+
+// googleTrends.interestOverTime({keyword: 'Valentines Day'})
+// .then(function(results){
+//   console.log(results);
+// })
+// .catch(function(err){
+//   console.error(err);
+// });
+
+facebookScrape('tea', function(err, json) {
+if(err){
+  console.log('error: ', err)
+}
+else {
+  console.log(json);
+}
+  // err will be an error if the scrape failed
+  // json will be the data that json scraped (the values in the og-tags)
 })
-.catch(function(err){
-  console.error(err);
-});
+
 
 // listen to connections to our server
 app.listen(PORT, (error) =>{

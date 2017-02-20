@@ -3,13 +3,62 @@
   <head>
       <title> NicheGuru Home </title>
       <link rel = "stylesheet" type = "text/css" href = "main.css"> </link>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+      <script src="/js/controller.js"></script>
    </head>
 
   <body ng-controller = "NicheController as nCtrl">
     <div class="search">
-  <input type="text" class="search-box" placeholder = "seach for a niche! (Ex. watch)" />
-  <input type="submit" value=""class="search-btn" />
+  <input type="text" id = "searchValue" class="search-box" placeholder = "seach for a niche! (Ex. watch)" />
+  <input id = 'formButton' type="submit" value=""class="search-btn" />
 </div>
+
+
+<script>
+$(document).ready(function(){
+  // console.log($('#formButton').val());
+  $('#formButton').click('submit', function(){
+    console.log($('#searchValue').val())
+    var input = $('#searchValue').val();
+    console.log('input: ' + input);
+    // $('gTrends').attr('src').replace('watch', input);
+    $('#gTrends').attr('src', "http://www.google.com/trends/fetchComponent?hl=en-US&q=" + input + ", &cmpt=q&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=640&h=330");
+
+  })
+
+})
+</script>
+
+<iframe id = 'gTrends' scrolling="no" style="border:none;" width="640" height="330" src="http://www.google.com/trends/fetchComponent?hl=en-US&q=watch, &cmpt=q&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=640&h=330">
+</iframe>
+
+<iframe id = 'shopifyQuiz' scrolling='no' style = 'border:none' width='750' height='350' src = "https://ecommerce.shopify.com/pages/product-grader">
+</iframe>
+
+
+
+<!-- $('img').attr('src').replace('gray', 'green'); -->
+
+
+
+<!-- <script>
+$(document).ready(function(){
+  console.log('jquery working');
+var getSearchValue = $('searchValue').val();
+console.log(getSearchValue);
+});
+</script> -->
+
+<!-- {{nCtrl.greeting}}  -->
+
+
+
+
+<!-- Original iframe code -->
+ <!-- <iframe scrolling="no" style="border:none;" width="640" height="330" src="http://www.google.com/trends/fetchComponent?hl=en-US&q=danbo+robot,danbo+amazon,danbo+yotsuba &cmpt=q&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=640&h=330">
+</iframe> -->
+<script src="/js/mainScript.js"></script>
+
   </body>
 </html>
