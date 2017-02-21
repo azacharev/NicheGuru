@@ -7,7 +7,7 @@ var request = require('request');
 
 var util = require('util');
 
-var facebookScrape = require('facebook-scrape')
+// var facebookScrape = require('facebook-scrape')
 
 // google trends api here -- !not working
 // const googleTrends = require('google-trends-api');
@@ -38,16 +38,6 @@ app.use(express.static('public'));
 //   console.error(err);
 // });
 
-facebookScrape('tea', function(err, json) {
-if(err){
-  console.log('error: ', err)
-}
-else {
-  console.log(json);
-}
-  // err will be an error if the scrape failed
-  // json will be the data that json scraped (the values in the og-tags)
-})
 
 
 // listen to connections to our server

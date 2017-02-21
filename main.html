@@ -6,6 +6,8 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
       <script src="/js/controller.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
    </head>
 
   <body ng-controller = "NicheController as nCtrl">
@@ -25,12 +27,17 @@ $(document).ready(function(){
     // $('gTrends').attr('src').replace('watch', input);
     $('#gTrends').attr('src', "http://www.google.com/trends/fetchComponent?hl=en-US&q=" + input + ", &cmpt=q&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=640&h=330");
 
+    $('#addToProfile').click('submit', function(){
+      console.log("niche added to profile: " + input);
+    })
   })
+
+
 
 })
 </script>
 
-<div style='position:relative; left: 400px;'>
+<div style='position:relative; left: 400px; bottom: 75px;'>
 <iframe id = 'gTrends' scrolling="no" style="border:none;" width="640" height="330" src="http://www.google.com/trends/fetchComponent?hl=en-US&q=watch, &cmpt=q&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=640&h=330">
 </iframe>
 </div>
@@ -38,7 +45,13 @@ $(document).ready(function(){
 <iframe id = 'shopifyQuiz' scrolling='no' style = 'border:none' width='750' height='350' src = "https://ecommerce.shopify.com/pages/product-grader">
 </iframe> -->
 
-<div id='container'>
+<!-- Trigger to open the modal -->
+<button id = 'myBtn'> Evaluation </button>
+
+<!-- The Modal -->
+<div id = 'myModal' class = 'modal'>
+<div id='container' class = 'modal-content'>
+  <span class="close">&times;</span>
 			<div id='title'>
 				<h1>Niche Evaluation</h1>
 			</div>
@@ -47,10 +60,39 @@ $(document).ready(function(){
     		<div class='button' id='next'><a href='#'>Next</a></div>
     		<div class='button' id='prev'><a href='#'>Prev</a></div>
     		<div class='button' id='start'> <a href='#'>Start Over</a></div>
-    		<!-- <button class='' id='next'>Next</a></button>
-    		<button class='' id='prev'>Prev</a></button>
-    		<button class='' id='start'> Start Over</a></button> -->
+
     	</div>
+  </div>
+<!-- end modal -->
+<!-- Progress Bar -->
+<div id="myProgress">
+  <div id="myBar">
+    <div id="label">0%</div>
+  </div>
+</div>
+
+<br>
+<button onclick="move()" id='estimateButton'>Success Estimate</button>
+
+<button id = 'addToProfile' type="submit"> Add to Profile </button>
+
+
+<!-- <script>
+function move() {
+  var elem = document.getElementById("myBar");
+  var width = 10;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 90) {
+      clearInterval(id);
+    } else {
+      width++;
+      elem.style.width = width + '%';
+      document.getElementById("label").innerHTML = width * 1  + '%';
+    }
+  }
+}
+</script> -->
 
 		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
 		<script type="text/javascript" src='questions.json'></script>
@@ -71,8 +113,6 @@ console.log(getSearchValue);
 </script> -->
 
 <!-- {{nCtrl.greeting}}  -->
-
-
 
 
 <!-- Original iframe code -->
