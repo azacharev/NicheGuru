@@ -31,9 +31,6 @@ $(document).ready(function(){
       console.log("niche added to profile: " + input);
     })
   })
-
-
-
 })
 </script>
 
@@ -74,11 +71,7 @@ $(document).ready(function(){
 <br>
 <button onclick="move()" id='estimateButton'>Success Estimate</button>
 
-<!-- start modal -->
-
-
-<!-- end modal -->
-
+<!-- Trigger/Open the modal (graph) -->
 <button id = 'analysisReport' type="submit"> Analysis Report </button>
 
 <div class="Profilecontainer">
@@ -86,7 +79,7 @@ $(document).ready(function(){
   <div class="Proname">AnthonyZacharev</div>
 </div>
 
-<form name="skillsFrm" ng-submit="addSkill()">
+<form name="skillsFrm" ng-submit="addSkill()" id = "nicheForm">
      <input type="text" name="newSkill" ng-model="newSkill" required />
      <button ng-disabled="skillsFrm.$invalid" ng-click="addSkill()">Add</button>
   </form>
@@ -97,6 +90,74 @@ $(document).ready(function(){
       <span>{{skill.title}}</span>
     </li>
   </ul>
+
+  <!-- start modal -->
+
+<!-- The Modal -->
+
+<div id = 'myAnalysisModal' class = 'analysisModal'>
+  <!-- <p> test content </p> -->
+  <!-- Modal content -->
+  <div class = "analysis-modal-content">
+    <span class = "closeModal">&times;</span>
+  </div>
+<!-- bar graph here -->
+<div class = "barGraphModalBody">
+  <ul class="bar-graph">
+  <li>
+    <p>0-25%</p>
+    <div class="bar-wrap"><span class="bar-fill" style="width: 25%;"></span></div>
+    <p> Slim chance of success. It is highly recommended that you research a new niche or narrow down your current niche. </p>
+  </li>
+  <li>
+    <p>25-50%</p>
+    <div class="bar-wrap"><span class="bar-fill" style="width: 50%;"></span></div>
+    <p> Low chance of success. You may want to consider finding a new niche. If you choose to use this niche make sure you have a strong marketing plan. </p>
+  </li>
+  <li>
+    <p>50-75%</p>
+    <div class="bar-wrap"><span class="bar-fill"  style="width: 75%;"></span></div>
+    <p> Fair chance of success. Odds are with you and not against you. Execute your marketing right and you should have a winner. </p>
+  </li>
+  <li>
+    <p>75-100%</p>
+    <div class="bar-wrap"><span class="bar-fill" style="width: 100%;"></span></div>
+    <p> High chance of success! I think you found a winner. Start your marketing as soon as possible before the market gets saturated.
+  </li>
+</ul>
+</div>
+
+</div>
+
+<script>
+// Get the modal
+var analysisModal = document.getElementById('myAnalysisModal');
+
+// Get the button that opens the modal
+var analysisModalButton = document.getElementById('analysisReport');
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("closeModal")[0];
+
+// When the user clicks the button, open the modal
+analysisModalButton.onclick = function() {
+  analysisModal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  analysisModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+  <!-- end modal -->
 
 
 <!-- <script>

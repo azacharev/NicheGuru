@@ -62,7 +62,7 @@ body{
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   position: relative;
-  left: 650px;
+  left: 655px;
   bottom: 50px;
 }
 
@@ -91,7 +91,7 @@ body{
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: rgb(135, 206, 235); 
+    background-color: rgb(135, 206, 235);
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
@@ -226,6 +226,13 @@ body{
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  position: relative;
+  left: 570px;
+}
+
+#nicheForm {
+  position: relative;
+  left: 650px;
 }
 
 .Propic {
@@ -314,4 +321,116 @@ li {
   &:focus, &:active {
     outline:0;
   }
+}
+
+/* graph modal */
+
+.analysisModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 500px;
+    top: 20px;
+    bottom: 50px;
+    width: 500px; /* Full width */
+    height: 200px; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+/*.analysis-modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+}*/
+
+/* The Close Button */
+.closeModal {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@import "compass/css3";
+
+/*// Mixins*/
+
+@mixin prefix ($property, $value,
+                 $moz:    true,
+                 $webkit: true,
+                 $o:      false,
+                 $ms:     true,
+                 $spec:   true) {
+    @if $moz    {    -moz-#{$property}: $value; }
+    @if $webkit { -webkit-#{$property}: $value; }
+    @if $o      {      -o-#{$property}: $value; }
+    @if $ms     {     -ms-#{$property}: $value; }
+    @if $spec   {         #{$property}: $value; }
+}
+
+/*// Animations*/
+
+@keyframes bar-fill {
+   0% { width: 0; }
+}
+@-webkit-keyframes bar-fill {
+   0% { width: 0; }
+}
+@-moz-keyframes bar-fill {
+   0% { width: 0; }
+}
+@-o-keyframes bar-fill {
+   0% { width: 0; }
+}
+
+/*// Graph stuff*/
+
+.bar-graph {
+		list-style: none;
+    margin: 50px 0px auto;
+}
+
+.bar-wrap {
+  @include prefix(border-radius,10px 10px 10px 10px);
+  background-color: #ddd;;
+  border: 1px solid #ddd;;
+  margin-bottom: 10px;
+}
+
+.bar-fill {
+  @include prefix(border-radius,10px 10px 10px 10px);
+  @include prefix(animation, bar-fill 1s);
+  background-color: #4CAF50;
+  display: block;
+  height: 15px;
+  width: 0px;
+}
+
+/*// General stuff*/
+
+.barGraphModalBody {
+  background-color: white;
+}
+
+.barGraphModalBody p {
+  color: black;
+  font: {
+    family: 'Helvetica';
+    size: 16px;
+    weight: 100;
+  }
+  text-transform: uppercase;
 }
