@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app = "NicheGuru">
+<html ng-app = "addSkills">
   <head>
       <title> NicheGuru Home </title>
       <link rel = "stylesheet" type = "text/css" href = "main.css"> </link>
@@ -7,10 +7,10 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
       <script src="/js/controller.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:500,300,700,400italic,400">
    </head>
 
-  <body ng-controller = "NicheController as nCtrl">
+  <body ng-controller = "addSkillsController">
     <div class="search">
   <input type="text" id = "searchValue" class="search-box" placeholder = "seach for a niche! (Ex. watch)" />
   <input id = 'formButton' type="submit" value=""class="search-btn" />
@@ -74,7 +74,29 @@ $(document).ready(function(){
 <br>
 <button onclick="move()" id='estimateButton'>Success Estimate</button>
 
-<button id = 'addToProfile' type="submit"> Add to Profile </button>
+<!-- start modal -->
+
+
+<!-- end modal -->
+
+<button id = 'analysisReport' type="submit"> Analysis Report </button>
+
+<div class="Profilecontainer">
+  <div class="Propic">AZ</div>
+  <div class="Proname">AnthonyZacharev</div>
+</div>
+
+<form name="skillsFrm" ng-submit="addSkill()">
+     <input type="text" name="newSkill" ng-model="newSkill" required />
+     <button ng-disabled="skillsFrm.$invalid" ng-click="addSkill()">Add</button>
+  </form>
+
+  <ul>
+    <li ng-repeat="skill in skills" class="{'fadeOut' : skill.done}">
+      <span class="fa fa-close" ng-click="deleteSkill($index)"></span>
+      <span>{{skill.title}}</span>
+    </li>
+  </ul>
 
 
 <!-- <script>

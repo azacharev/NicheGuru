@@ -91,7 +91,7 @@ body{
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
+    background-color: rgb(135, 206, 235); 
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
@@ -187,7 +187,7 @@ body{
    text-decoration: none;
 }
 
-#addToProfile {
+#analysisReport {
   background: #3498db;
   background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
   background-image: -moz-linear-gradient(top, #3498db, #2980b9);
@@ -214,4 +214,104 @@ body{
    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
    text-decoration: none;
+}
+
+.Profilecontainer {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  height: 150px;
+  width: 300px;
+  font-family: Roboto, sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Propic {
+  border-radius: 50%;
+  background-color: #cccccc;
+  width: 2em;
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: #ffffff;
+  box-shadow: 0px 0px 6px rgba(20, 20, 20, 0.6);
+}
+
+.Proname {
+  color: #222222;
+}
+
+/* add niche to list */
+
+@import "bourbon";
+
+$melon: #F97D75;
+$black: #2E3641;
+
+* {
+  font-size: 14px;
+  font-family: 'Titillium Web', sans-serif;
+  color: $black;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+.skillInput {
+  border: 0;
+  margin-right: 5px;
+  background: transparent;
+  border-bottom: 1px solid black;
+  width: 80px;
+  padding: 8px;
+  @include transition(all .3s ease);
+
+  &:focus, &:active {
+    outline: 0;
+    width: 200px;
+    border-bottom-color: $melon;
+  }
+}
+
+#addSkillButton {
+  background-color: $melon;
+  border: 0;
+  padding: 8px 20px;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:focus, &:active {
+    outline: 0;
+  }
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 25px;
+}
+
+li {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+
+.fa-close {
+  cursor: pointer;
+}
+
+[contenteditable] {
+  &:focus, &:active {
+    outline:0;
+  }
 }

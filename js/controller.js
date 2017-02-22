@@ -1,12 +1,16 @@
-angular.module("NicheGuru", [])
-  .controller('NicheController', nicheControl);
+angular
+  .module("addSkills", [])
+  .controller('addSkillsController', ['$scope', function($scope){
 
-  // inject $http into the controller since we need to make requests to our server
-nicheControl.$inject = ["$http"];
+    $scope.skills = [];
 
-// define the controller
-function nicheControl($http) {
-  var nCtrl = this;
+    $scope.addSkill = function() {
+			$scope.skills.push({'title': $scope.newSkill, 'done':false})
+			$scope.newSkill = ''
+		}
 
-  nCtrl.greeting = "this is a test"; 
-}
+		$scope.deleteSkill = function(index) {
+			$scope.skills.splice(index, 1);
+		}
+
+  }]);
